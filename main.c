@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 20:15:51 by fmaurer           #+#    #+#             */
-/*   Updated: 2022/07/29 23:22:32 by fmaurer          ###   ########.fr       */
+/*   Updated: 2022/07/30 08:29:35 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 char	**ft_split_cnt(char *str, int *words);
 
-void ft_print(char *str);
+void	ft_print(char *str);
 
 /* TODO:
  *
@@ -27,24 +27,25 @@ void ft_print(char *str);
  */
 
 // works so far! call with: ./a.out "213 4325 123 5 5454 23 23" f.ex.
- int main(int ac, char **av) { int nums; char **number_strings; int cnt;
+int	main(int ac, char **av)
+{
+	char	**number_strings;
+	int		nums;
+	int		cnt;
 
 	if (ac != 2)
 	{
 		write(2, "Error\n", 6);
 		return (1);
 	}
-
 	number_strings = ft_split_cnt(av[1], &nums);
 	cnt = 0;
-
-	while(cnt < nums)
+	while (cnt < nums)
 	{
 		ft_print("str: ");
 		ft_print(number_strings[cnt]);
 		ft_print("\n");
 		cnt++;
 	}
-
 	free(number_strings);
 }
