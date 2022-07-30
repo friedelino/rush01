@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 20:15:51 by fmaurer           #+#    #+#             */
-/*   Updated: 2022/07/30 15:49:36 by fmaurer          ###   ########.fr       */
+/*   Updated: 2022/07/30 17:40:30 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	main(int ac, char **av)
 {
 	char	**number_strings;
 	int	**square;
+	/* int	**solution; */
 	int		cmdline_nums;
 	int		n;
 
@@ -44,12 +45,24 @@ int	main(int ac, char **av)
 	number_strings = ft_split_cnt(av[1], &cmdline_nums);
 	square = strs_to_intsquare(number_strings, n);
 
-	if (square == NULL || cmdline_nums != n*n || \
+	if (square == NULL || cmdline_nums != n * n || \
 		!(4 <= n && n <= 9))
 	{
 		write(2, "Error\n", 6);
+		free(number_strings);
+		free(square);
 		return (1);
 	}
+
+	/* solution  = rush01_algorithm(square, n); */
+
+	/* if (solution == NULL) */
+	/* { */
+	/* 	write(2, "Error\n", 6); */
+	/* 	free(number_strings); */
+	/* 	free(square); */
+	/* 	return (1); */
+	/* } */
 
 	// DEBUG output
 	/* debug_output(n, number_strings, square); */

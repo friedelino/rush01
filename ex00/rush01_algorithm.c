@@ -6,13 +6,14 @@
 /*   By: fmaurer <fmaurer42@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 11:33:32 by fmaurer           #+#    #+#             */
-/*   Updated: 2022/07/30 13:40:45 by fmaurer          ###   ########.fr       */
+/*   Updated: 2022/07/30 17:41:01 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rush01.h"
 
-void rush01_algorithm(int *views)
+void	rush01_algorithm(int **square, int n)
 {
-	(void) views;
+	(void) square;
+	(void) n;
 }
