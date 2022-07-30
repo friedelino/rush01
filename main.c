@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 20:15:51 by fmaurer           #+#    #+#             */
-/*   Updated: 2022/07/30 08:58:08 by fmaurer          ###   ########.fr       */
+/*   Updated: 2022/07/30 14:32:02 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,7 @@ int	main(int ac, char **av)
 {
 	char	**number_strings;
 	int	*num_array;
-	int		nums;
-	int		cnt;
+	int		cmdline_nums;
 
 	// TODO: move to seperate function error_handler(int ac);
 	if (ac != 2)
@@ -40,25 +39,17 @@ int	main(int ac, char **av)
 		write(2, "Error\n", 6);
 		return (1);
 	}
-	number_strings = ft_split_cnt(av[1], &nums);
-	num_array = strs_to_1to4(number_strings, nums);
-	if (num_array == NULL)
+	number_strings = ft_split_cnt(av[1], &cmdline_nums);
+	num_array = strs_to_1to4(number_strings, cmdline_nums);
+
+	if (num_array == NULL || cmdline_nums != 16)
 	{
 		write(2, "Error\n", 6);
 		return (1);
 	}
 
 	// DEBUG output
-	cnt = 0;
-	while (cnt < nums)
-	{
-		ft_print("str: ");
-		ft_print(number_strings[cnt]);
-		ft_print("\n");
-		cnt++;
-	}
-	for(int i = 0; i < nums; i++)
-		printf("num_array[%d] = %d\n", i, num_array[i]);
+	debug_output(cmdline_nums, number_strings, num_array);
 	// end DEBUG output
 
 	free(number_strings);
