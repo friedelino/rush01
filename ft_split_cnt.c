@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 23:17:18 by fmaurer           #+#    #+#             */
-/*   Updated: 2022/07/30 08:26:17 by fmaurer          ###   ########.fr       */
+/*   Updated: 2022/07/30 14:36:57 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ void	ft_split_loop(char **mem, char *str, int *wordcnt, int len)
 			wdstart = &str[j + 1];
 			inwdcnt = 0;
 		}
-		inwdcnt++;
+		else
+			inwdcnt++;
 	}
 }
 
