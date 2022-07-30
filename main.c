@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 20:15:51 by fmaurer           #+#    #+#             */
-/*   Updated: 2022/07/30 14:32:02 by fmaurer          ###   ########.fr       */
+/*   Updated: 2022/07/30 15:49:36 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,11 @@
 int	main(int ac, char **av)
 {
 	char	**number_strings;
-	int	*num_array;
+	int	**square;
 	int		cmdline_nums;
+	int		n;
 
+	n = 4;
 	// TODO: move to seperate function error_handler(int ac);
 	if (ac != 2)
 	{
@@ -40,18 +42,20 @@ int	main(int ac, char **av)
 		return (1);
 	}
 	number_strings = ft_split_cnt(av[1], &cmdline_nums);
-	num_array = strs_to_1to4(number_strings, cmdline_nums);
+	square = strs_to_intsquare(number_strings, n);
 
-	if (num_array == NULL || cmdline_nums != 16)
+	if (square == NULL || cmdline_nums != n*n || \
+		!(4 <= n && n <= 9))
 	{
 		write(2, "Error\n", 6);
 		return (1);
 	}
 
 	// DEBUG output
-	debug_output(cmdline_nums, number_strings, num_array);
+	/* debug_output(n, number_strings, square); */
 	// end DEBUG output
+	print_square(square, n);
 
 	free(number_strings);
-	free(num_array);
+	free(square);
 }
