@@ -19,14 +19,14 @@ TARGETS = test
 
 all: ${TARGETS}
 
-test: ../*.c
+test: *.c
 	@echo "Cleaning up..."
 	@echo
 	rm -f ../rush-01
 	@echo
 	@echo "Compiling..."
 	@echo
-	${CC} ${CFLAGS} ../*.c -o rush-01
+	${CC} ${CFLAGS} *.c -o rush-01
 	@echo
 	@echo "Testing... rush-01:"
 	@echo "------------"
@@ -39,14 +39,14 @@ test: ../*.c
 	@echo "------------"
 	@echo "Done!"
 
-test0: ../*.c
+test0: *.c
 	@echo "Cleaning up..."
 	@echo
 	rm -f ../rush-01
 	@echo
 	@echo "Compiling..."
 	@echo
-	${CC} ${CFLAGS} ../*.c -o rush-01
+	${CC} ${CFLAGS} *.c -o rush-01
 	@echo
 	@echo "Testing... rush-01:"
 	@echo "------------"
