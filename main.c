@@ -6,16 +6,16 @@
 /*   By: fmaurer <fmaurer42@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 20:15:51 by fmaurer           #+#    #+#             */
-/*   Updated: 2022/07/30 08:29:35 by fmaurer          ###   ########.fr       */
+/*   Updated: 2022/07/30 08:58:08 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// only for DEBUG !!! remove later !!!
+#include <stdio.h>
+
 #include <unistd.h>
 #include <stdlib.h>
-
-char	**ft_split_cnt(char *str, int *words);
-
-void	ft_print(char *str);
+#include "rush01.h"
 
 /* TODO:
  *
@@ -30,15 +30,25 @@ void	ft_print(char *str);
 int	main(int ac, char **av)
 {
 	char	**number_strings;
+	int	*num_array;
 	int		nums;
 	int		cnt;
 
+	// TODO: move to seperate function error_handler(int ac);
 	if (ac != 2)
 	{
 		write(2, "Error\n", 6);
 		return (1);
 	}
 	number_strings = ft_split_cnt(av[1], &nums);
+	num_array = strs_to_1to4(number_strings, nums);
+	if (num_array == NULL)
+	{
+		write(2, "Error\n", 6);
+		return (1);
+	}
+
+	// DEBUG output
 	cnt = 0;
 	while (cnt < nums)
 	{
@@ -47,5 +57,10 @@ int	main(int ac, char **av)
 		ft_print("\n");
 		cnt++;
 	}
+	for(int i = 0; i < nums; i++)
+		printf("num_array[%d] = %d\n", i, num_array[i]);
+	// end DEBUG output
+
 	free(number_strings);
+	free(num_array);
 }
