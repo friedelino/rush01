@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 09:00:42 by fmaurer           #+#    #+#             */
-/*   Updated: 2022/07/30 14:46:13 by fmaurer          ###   ########.fr       */
+/*   Updated: 2022/07/30 15:40:13 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,33 @@
 #include "rush01.h"
 
 /* strs_to_1to4 -- next step in the cmdline-args parsing process. takes as
- * input the 2dim-array of split-strings and their quantity n, and converts
- * those strings, which should be only whole number k s.t. 0 < k < 5, converts
- * them to int and return them as a int-array of size n.
+ * input the 2dim-array of split-strings and the desired size of the rectangle
+ * (for simple rush01: 4x4), and converts those strings, which should be only
+ * whole number k s.t. 0 < k < 5, converts them to int and return them as a
+ * int-array of size n.
  */
-int	*strs_to_1to4(char **strs, int n)
+int	**strs_to_intsquare(char **strs, int n)
 {
-	int	*mem;
+	int	**mem;
 	int	j;
+	int	k;
 
-	mem = (int *) malloc(n * sizeof (int));
+	mem = (int **) malloc((n * n) * sizeof (int *));
 	if (mem == NULL)
 		return (NULL);
-	j = -1;
-	while (++j < n)
+	j = 0;
+	while (j < n * n)
 	{
-		if (ft_strlen(strs[j]) != 1 || !('1' <= strs[j][0] && \
-				strs[j][0] <= '4'))
-				return (NULL);
-		mem[j] = strs[j][0] - '0';
+		k = -1;
+		mem[j/n] = (int *) malloc(1 * sizeof (int));
+		while (++k < n)
+		{
+			if (ft_strlen(strs[j]) != 1 || !('1' <= strs[j + k][0] && \
+					strs[j + k][0] <= '0' + n))
+					return (NULL);
+			mem[j/n][k] = strs[j + k][0] - '0';
+		}
+		j += k;
 	}
 	return (mem);
 }
