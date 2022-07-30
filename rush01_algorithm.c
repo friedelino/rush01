@@ -1,22 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print.c                                         :+:      :+:    :+:   */
+/*   rush01_algorithm.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmaurer <fmaurer42@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/29 23:08:43 by fmaurer           #+#    #+#             */
-/*   Updated: 2022/07/30 08:40:57 by fmaurer          ###   ########.fr       */
+/*   Created: 2022/07/30 11:33:32 by fmaurer           #+#    #+#             */
+/*   Updated: 2022/07/30 11:34:58 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "rush01.h"
-
-void	ft_print(char *str)
+void rush01_algorithm(int *views)
 {
-	int	bytes;
-
-	bytes = ft_strlen(str);
-	write(1, str, bytes);
+	return (0);
 }
