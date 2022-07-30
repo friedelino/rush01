@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 09:00:42 by fmaurer           #+#    #+#             */
-/*   Updated: 2022/07/30 14:25:47 by fmaurer          ###   ########.fr       */
+/*   Updated: 2022/07/30 14:46:13 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@
 #include <stdlib.h>
 #include "rush01.h"
 
+/* strs_to_1to4 -- next step in the cmdline-args parsing process. takes as
+ * input the 2dim-array of split-strings and their quantity n, and converts
+ * those strings, which should be only whole number k s.t. 0 < k < 5, converts
+ * them to int and return them as a int-array of size n.
+ */
 int	*strs_to_1to4(char **strs, int n)
 {
 	int	*mem;
