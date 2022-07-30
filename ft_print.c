@@ -6,13 +6,14 @@
 /*   By: fmaurer <fmaurer42@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 23:08:43 by fmaurer           #+#    #+#             */
-/*   Updated: 2022/07/30 08:26:55 by fmaurer          ###   ########.fr       */
+/*   Updated: 2022/07/30 08:40:57 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include "rush01.h"
 
-int	ft_strlen(char *str);
+
 
 void	ft_print(char *str)
 {
