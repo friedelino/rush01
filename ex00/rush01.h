@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 08:39:14 by fmaurer           #+#    #+#             */
-/*   Updated: 2022/07/31 16:54:26 by fmaurer          ###   ########.fr       */
+/*   Updated: 2022/07/31 17:01:43 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,6 @@ int		**strs_to_intsquare(char **strs, int n);
 void	debug_output(int cmdline_nums, char **number_strings, int **square);
 
 void	print_square(const int square[4][4], int n);
-// void	print_square(const int **square, int n);
-// void	print_square(int square[4][4], int n);
-// void	print_square(const int *square[4], int n);
 
 int	rush01_algorithm(int **input, int n);
 
