@@ -6,14 +6,14 @@
 /*   By: fmaurer <fmaurer42@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 09:07:14 by fmaurer           #+#    #+#             */
-/*   Updated: 2022/07/31 12:37:27 by fmaurer          ###   ########.fr       */
+/*   Updated: 2022/07/31 16:29:16 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ALLSQUARES_H
 # define ALLSQUARES_H
 
-const int	g_allsquares[576][4][4] = {
+static const int	g_allsquares[576][4][4] = {
 {
 {1, 2, 3, 4},
 {2, 1, 4, 3},

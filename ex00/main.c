@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 20:15:51 by fmaurer           #+#    #+#             */
-/*   Updated: 2022/07/31 12:43:03 by fmaurer          ###   ########.fr       */
+/*   Updated: 2022/07/31 16:49:34 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include "rush01.h"
+#include "allsquares.h"
+
 
 /* TODO:
  *
@@ -28,8 +30,8 @@
 int	main(int ac, char **av)
 {
 	char	**number_strings;
-	int	**square;
-	/* int	**solution; */
+	int		**input;
+	int		solution;
 	int		cmdline_nums;
 	int		n;
 
@@ -41,18 +43,28 @@ int	main(int ac, char **av)
 		return (1);
 	}
 	number_strings = ft_split_cnt(av[1], &cmdline_nums);
-	square = strs_to_intsquare(number_strings, n);
+	input = strs_to_intsquare(number_strings, n);
 
-	if (square == NULL || cmdline_nums != n * n || \
+	if (input == NULL || cmdline_nums != n * n || \
 		!(4 <= n && n <= 9))
 	{
 		write(2, "Error\n", 6);
 		free(number_strings);
-		free(square);
+		free(input);
 		return (1);
 	}
 
-	/* solution  = rush01_algorithm(square, n); */
+	solution = rush01_algorithm(input, n);
+	if (0 <= solution && solution < 576)
+		print_square(g_allsquares[solution], n);
+	else
+	{
+		write(2, "no square found\n", 16);
+		free(number_strings);
+		free(input);
+		return (1);
+	}
+
 
 	/* if (solution == NULL) */
 	/* { */
@@ -65,8 +77,7 @@ int	main(int ac, char **av)
 	// DEBUG output
 	/* debug_output(n, number_strings, square); */
 	// end DEBUG output
-	print_square(square, n);
 
 	free(number_strings);
-	free(square);
+	free(input);
 }

@@ -6,16 +6,42 @@
 /*   By: fmaurer <fmaurer42@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 11:33:32 by fmaurer           #+#    #+#             */
-/*   Updated: 2022/07/31 15:29:16 by fmaurer          ###   ########.fr       */
+/*   Updated: 2022/07/31 16:27:52 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rush01.h"
 #include "allsquares.h"
 
-void	rush01_algorithm(int **input, int n)
+int	rush01_algorithm(int **input, int n)
 {
+	int	sqcnt;
+	int	row;
+	int	col;
+	int	allgood;
 
+	sqcnt = -1;
+	while (++sqcnt < 576)
+	{
+		allgood = 1;
+		col = -1;
+		while (++col < n)
+		{
+			if (i_can_see_col_up(sqcnt, col) != input[0][col] || \
+			i_can_see_col_down(sqcnt, col) != input[1][col])
+				allgood = 0;
+		}
+		row = -1;
+		while (++row < n && allgood)
+		{
+			if (i_can_see_row_left(sqcnt, row) != input[2][row] || \
+			i_can_see_row_right(sqcnt, row) != input[3][row])
+				allgood = 0;
+		}
+		if (allgood)
+			return (sqcnt);
+	}
+	return (-1);
 }
 
 // count number of towers i can see from up in column
@@ -96,10 +122,10 @@ int	i_can_see_row_right(int sqnum, int row)
 	max = g_allsquares[sqnum][row][3];
 	while (colcnt >= 0)
 	{
-		if (g_allsquares[sqnum][colcnt][col] > max)
+		if (g_allsquares[sqnum][colcnt][row] > max)
 		{
 			visible++;
-			max = g_allsquares[sqnum][colcnt][col];
+			max = g_allsquares[sqnum][colcnt][row];
 		}
 		colcnt--;
 	}

@@ -6,7 +6,7 @@
 #    By: fmaurer <fmaurer42@gmail.com>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/31 09:02:27 by fmaurer           #+#    #+#              #
-#    Updated: 2022/07/31 09:02:27 by fmaurer          ###   ########.fr        #
+#    Updated: 2022/07/31 16:31:01 by fmaurer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,8 +72,6 @@ for sq in squares1:
                         if candi not in squares1:
                             squares2.append(candi)
 
-# print(len(squares2))
-
 print("const int\tALLSQUARES[576][4][4] = {\n{")
 for sq in squares2:
     for i in range(4):
@@ -84,3 +82,5 @@ for sq in squares2:
         else:
             print(f"{{{sq[i][0]}, {sq[i][1]}, {sq[i][2]}, {sq[i][3]}}}")
     print("}, {")
+
+print(len(squares2))

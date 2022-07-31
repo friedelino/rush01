@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print.c                                         :+:      :+:    :+:   */
+/*   printing.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmaurer <fmaurer42@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 23:08:43 by fmaurer           #+#    #+#             */
-/*   Updated: 2022/07/31 12:47:29 by fmaurer          ###   ########.fr       */
+/*   Updated: 2022/07/31 16:54:06 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_print(char *str)
 	write(1, str, bytes);
 }
 
-void	print_square(int **square, int n)
+void	print_square(const int square[4][4], int n)
 {
 	int		j;
 	int		k;
