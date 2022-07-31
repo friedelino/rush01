@@ -6,10 +6,11 @@
 /*   By: fmaurer <fmaurer42@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 08:39:14 by fmaurer           #+#    #+#             */
-/*   Updated: 2022/07/30 17:40:54 by fmaurer          ###   ########.fr       */
+/*   Updated: 2022/07/31 09:06:55 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+#ifndef RUSH01_H
+#define RUSH01_H
 
 int	ft_strlen(char *str);
 
@@ -25,4 +26,5 @@ void	print_square(int **square, int n);
 
 void	rush01_algorithm(int **square, int n);
 
+#endif
 
