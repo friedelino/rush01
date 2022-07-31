@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 20:15:51 by fmaurer           #+#    #+#             */
-/*   Updated: 2022/07/30 17:40:30 by fmaurer          ###   ########.fr       */
+/*   Updated: 2022/07/31 12:43:03 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@
  * - function for solving
  *
  */
-
-// works so far! call with: ./a.out "213 4325 123 5 5454 23 23" f.ex.
 int	main(int ac, char **av)
 {
 	char	**number_strings;
