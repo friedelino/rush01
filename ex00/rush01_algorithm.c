@@ -6,12 +6,11 @@
 /*   By: fmaurer <fmaurer42@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 11:33:32 by fmaurer           #+#    #+#             */
-/*   Updated: 2022/07/31 18:44:53 by fmaurer          ###   ########.fr       */
+/*   Updated: 2022/07/31 19:11:05 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rush01.h"
-#include "allsquares.h"
 
 void	rush01_algo_inner_loop(int *allgood, int sqcnt, int **input, int n)
 {

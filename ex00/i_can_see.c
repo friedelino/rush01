@@ -6,11 +6,10 @@
 /*   By: fmaurer <fmaurer42@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 18:40:00 by fmaurer           #+#    #+#             */
-/*   Updated: 2022/07/31 18:40:19 by fmaurer          ###   ########.fr       */
+/*   Updated: 2022/07/31 19:09:08 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rush01.h"
 #include "allsquares.h"
 
 // count number of towers i can see from up in column

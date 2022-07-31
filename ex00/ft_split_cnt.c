@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 23:17:18 by fmaurer           #+#    #+#             */
-/*   Updated: 2022/07/30 14:36:57 by fmaurer          ###   ########.fr       */
+/*   Updated: 2022/07/31 19:08:24 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,7 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-/* ft_split -- returns split strings and the number of words
- *
- * TODO: in the end there should be something like ft_split_str_to_int. this
- * should return just all arguments already parsed into an int-array.
- *
- */
+/* ft_split -- returns split strings and the number of words */
 
 void	ft_split_loop(char **mem, char *str, int *wordcnt, int len)
 {
