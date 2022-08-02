@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 23:08:43 by fmaurer           #+#    #+#             */
-/*   Updated: 2022/07/31 16:54:06 by fmaurer          ###   ########.fr       */
+/*   Updated: 2022/08/02 11:29:22 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ void	print_square(const int square[4][4], int n)
 	k = 0;
 	while (j < n)
 	{
-		k = 0;
-		while (k < n)
+		k = -1;
+		while (++k < n)
 		{
 			c = '0' + square[j][k];
 			write(1, &c, 1);
-			write(1, " ", 1);
-			k++;
+			if (!k || k % (n-1))
+				write(1, " ", 1);
 		}
 		write(1, "\n", 1);
 		j++;
