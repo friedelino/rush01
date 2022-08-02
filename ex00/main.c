@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 20:15:51 by fmaurer           #+#    #+#             */
-/*   Updated: 2022/08/02 11:21:44 by fmaurer          ###   ########.fr       */
+/*   Updated: 2022/08/02 12:56:53 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,12 @@ void	error_or_free_all(char **number_strings, int **input, int err)
 		free(number_strings[freecnt]);
 	free(number_strings);
 	freecnt = -1;
-	while (++freecnt < 4)
-		free(input[freecnt]);
+	if(input != NULL)
+		while (++freecnt < 4)
+			free(input[freecnt]);
 	free(input);
 }
+
 
 void	error_or_free_number_strings(char **number_strings, int wordcnt)
 {
