@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 20:15:51 by fmaurer           #+#    #+#             */
-/*   Updated: 2022/07/31 19:01:44 by fmaurer          ###   ########.fr       */
+/*   Updated: 2022/08/02 11:21:44 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,40 @@
 #include "rush01.h"
 #include "allsquares.h"
 
-void	error_or_free(char **number_strings, int **input, int err)
+// wrong free
+//
+// void	error_or_free(char **number_strings, int **input, int err)
+// {
+// 	if (err)
+// 		write(2, "Error\n", 6);
+// 	free(number_strings);
+// 	free(input);
+// }
+void	error_or_free_all(char **number_strings, int **input, int err)
 {
+	int freecnt;
+
+	freecnt = -1;
 	if (err)
 		write(2, "Error\n", 6);
+	while(++freecnt < 16)
+		free(number_strings[freecnt]);
 	free(number_strings);
+	freecnt = -1;
+	while (++freecnt < 4)
+		free(input[freecnt]);
 	free(input);
+}
+
+void	error_or_free_number_strings(char **number_strings, int wordcnt)
+{
+	int freecnt;
+
+	freecnt = -1;
+	write(2, "Error\n", 6);
+	while(++freecnt < wordcnt)
+		free(number_strings[freecnt]);
+	free(number_strings);
 }
 
 int	main(int ac, char **av)
@@ -35,10 +63,15 @@ int	main(int ac, char **av)
 		return (1);
 	}
 	number_strings = ft_split_cnt(av[1], &dummy);
-	input = strs_to_intsquare(number_strings, 4);
-	if (input == NULL || dummy != 16)
+	if (number_strings == NULL || dummy != 16)
 	{
-		error_or_free(number_strings, input, 1);
+		error_or_free_number_strings(number_strings, dummy);
+		return (1);
+	}
+	input = strs_to_intsquare(number_strings, 4);
+	if (input == NULL )
+	{
+		error_or_free_all(number_strings, input, 1);
 		return (1);
 	}
 	dummy = rush01_algorithm(input, 4);
@@ -46,8 +79,8 @@ int	main(int ac, char **av)
 		print_square(g_allsquares[dummy], 4);
 	else
 	{
-		error_or_free(number_strings, input, 1);
+		error_or_free_all(number_strings, input, 1);
 		return (1);
 	}
-	error_or_free(number_strings, input, 0);
+	error_or_free_all(number_strings, input, 0);
 }
