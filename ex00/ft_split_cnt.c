@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 23:17:18 by fmaurer           #+#    #+#             */
-/*   Updated: 2022/08/02 11:02:15 by fmaurer          ###   ########.fr       */
+/*   Updated: 2022/08/02 13:39:26 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,9 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-/* ft_split -- returns split strings and the number of words */
-
+/* ft_split -- returns split strings and the number of words.. we have to
+ * malloc (inwdcnt + 1) bytes in order to append '\0' to every substring we
+ * find */
 void	ft_split_loop(char **mem, char *str, int *wordcnt, int len)
 {
 	int		j;
@@ -39,14 +40,15 @@ void	ft_split_loop(char **mem, char *str, int *wordcnt, int len)
 	j = -1;
 	inwdcnt = 0;
 	wdstart = str;
-	while (++j <= len)
+	while (len && ++j <= len)
 	{
 		if (str[j] == ' ' || str[j] == 0)
 		{
-			mem[*wordcnt] = (char *)malloc(inwdcnt * sizeof (char));
+			mem[*wordcnt] = (char *)malloc((inwdcnt + 1) * sizeof (char));
 			k = -1;
 			while (++k < inwdcnt)
 				mem[*wordcnt][k] = wdstart[k];
+			mem[*wordcnt][k] = '\0';
 			(*wordcnt)++;
 			wdstart = &str[j + 1];
 			inwdcnt = 0;
@@ -64,7 +66,7 @@ char	**ft_split_cnt(char *str, int *words)
 
 	wordcnt = 0;
 	len = ft_strlen(str);
-	mem = (char **)malloc(4 * len * sizeof (char *));
+	mem = (char **)malloc(len * sizeof (char *));
 	if (mem == NULL)
 		return (NULL);
 	ft_split_loop(mem, str, &wordcnt, len);
