@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 09:00:42 by fmaurer           #+#    #+#             */
-/*   Updated: 2022/07/31 12:48:01 by fmaurer          ###   ########.fr       */
+/*   Updated: 2022/08/01 07:00:35 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	**strs_to_intsquare(char **strs, int n)
 	while (j < n * n)
 	{
 		k = -1;
-		mem[j / n] = (int *) malloc(1 * sizeof (int));
+		mem[j / n] = (int *) malloc(n * sizeof (int));
 		while (++k < n)
 		{
 			if (ft_strlen(strs[j]) != 1 || !('1' <= strs[j + k][0] && \
